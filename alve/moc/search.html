@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta name="charset" content="utf-8">
+  <title>alivのモックページ</title>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- material design lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+  <!-- font awasome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <!-- custom -->
+  <link rel="stylesheet" href="css/alve.css">
+  <script src="js/alve.js"></script>
+
+
+  <script defer src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
+
+</head>
+<body>
+
+  <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title"><a href="index.html"><img src="img/logo.png" alt=""/>
+      </a></span>
+      <p style="padding-left: 40px; color: grey;">環境配慮バルブ登録システム</p>
+      <nav class="mdl-navigation">
+        <hr/>
+        <a class="mdl-navigation__link header-search" href="search.html"><i class="fa fa-search fa-lg"></i>登録製品検索</a>
+        <hr/>
+        <a class="mdl-navigation__link header-login" href="login.html"><i class="fa fa-user"></i></i>ログイン</a>
+        <a class="mdl-navigation__link header-login" href="register.html"><i class="fa fa-user-plus"></i></i>新規登録</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+
+        <!-- content start -->
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">検索</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            【ご注意】<br/>
+            ここに掲載されている製品は、会員企業が当工業会の定める評価項目に沿ってアセスメントを行い、自社従来製品又は新規設計目標値と比較し、環境側面で改善をしていると自己評価した製品です。<br/>
+            会員企業の評価結果に対し、当工業会は一切責任を負いませんので、あらかじめご了承ください。製品についての詳細は、メーカー各社までお問い合わせいただけますよう、お願いいたします。<br/>
+          </div>
+          <div class="mdl-card__actions mdl-card--border">
+
+            <form action="#" style="display: inline-block;">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="search" name="search">
+                <label class="mdl-textfield__label" for="search">Search</label>
+              </div>
+              <button class="mdl-button mdl-js-button mdl-button--fab">
+                <i class="material-icons">search</i>
+              </button>
+            </form>
+
+            <button class=" mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick='showSearchOption();return false;'>
+              検索オプション
+            </button>
+          </div>
+        </div>
+
+        <div class="search-options" style="">
+          <table class="search-item-table mdl-data-table  mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">バルブ種類</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-mdl-data-table-selectable-name="materials[]">
+                <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              </tr>
+              <tr data-mdl-data-table-selectable-name="materials[]">
+                <td class="mdl-data-table__cell--non-numeric">調節弁</td>
+              </tr>
+              <tr data-mdl-data-table-selectable-name="materials[]">
+                <td class="mdl-data-table__cell--non-numeric">自力式調整弁</td>
+              </tr>
+              <tr data-mdl-data-table-selectable-name="materials[]">
+                <td class="mdl-data-table__cell--non-numeric">電磁弁</td>
+              </tr>
+              <tr data-mdl-data-table-selectable-name="materials[]">
+                <td class="mdl-data-table__cell--non-numeric">安全弁</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <table id="sorter" class="result-base mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+          <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric">登録ID<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">登録日<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">更新日<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">バルブの種類<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">メーカ名<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">製品名<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">登録製品の型番<i class="fa fa-sort"></i></th>
+              <th class="mdl-data-table__cell--non-numeric">販売開始日<i class="fa fa-sort"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-03-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric">(株)○○バルブ</td>
+              <td class="mdl-data-table__cell--non-numeric">○○型××弁</td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-09-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-03-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric">(株)○○バルブ</td>
+              <td class="mdl-data-table__cell--non-numeric">○○型××弁</td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-09-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-03-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric">(株)○○バルブ</td>
+              <td class="mdl-data-table__cell--non-numeric"><a href="">○○型××弁</a></td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-09-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-10-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric"><a href="">(株)○○バルブ</a></td>
+              <td class="mdl-data-table__cell--non-numeric"><a href="">○○型××弁</a></td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-09-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-03-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric">(株)○○バルブ</td>
+              <td class="mdl-data-table__cell--non-numeric">○○型××弁</td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-09-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-01-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric"><a href="">(株)○○バルブ</a></td>
+              <td class="mdl-data-table__cell--non-numeric">○○型××弁</td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-02-01</td>
+            </tr>
+            <tr>
+              <td class="mdl-data-table__cell--non-numeric">CV091021</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-06-01</td>
+              <td class="mdl-data-table__cell--non-numeric">2016-09-01</td>
+              <td class="mdl-data-table__cell--non-numeric">手動弁</td>
+              <td class="mdl-data-table__cell--non-numeric">(株)○○バルブ</td>
+              <td class="mdl-data-table__cell--non-numeric">○○型××弁</td>
+              <td class="mdl-data-table__cell--non-numeric">AC/DC1980</td>
+              <td class="mdl-data-table__cell--non-numeric">2013-12-01</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+        <!-- content end -->
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
